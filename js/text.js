@@ -5,14 +5,14 @@ async function init () {
     node.innerText = ""
     await node.type('')
     
-    while (true) {
-      await node.type(' Frontend Proqramçı')
-      await sleep(5000)
-      await node.delete(' Frontend Proqramçı')
-      await node.type(' Frontend Proqramçı')
-      await sleep(8000)
-      await node.delete(' Frontend Proqramçı')
-    }
+    // while (true) {
+    //   await node.type(' Frontend Proqramçı')
+    //   await sleep(5000)
+    //   await node.delete(' Frontend Proqramçı')
+    //   await node.type(' Frontend Proqramçı')
+    //   await sleep(8000)
+    //   await node.delete(' Frontend Proqramçı')
+    // }
   }
   
   
