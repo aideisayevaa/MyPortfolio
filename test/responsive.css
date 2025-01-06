@@ -1,6 +1,6 @@
 @media screen and (max-width:992px) {
     .container {
-        width: 800px;
+        width: 90%;
     }
 
     .left ul {
@@ -32,15 +32,138 @@
 }
 
 @media screen and (max-width:768px) {
+    
+    .container {
+        width: 95%;
+    }
     .row {
         display: flex;
         justify-content: space-around;
         gap: 9px;
     }
+
+    .head_img1, .head_img2 {
+        width: 200px;
+    }
+
+    .head h1 {
+        font-size: 26px;
+        width: 86%;
+    }
+    .head h4 {
+        font-size: 23px;
+    }
+
+    .head h6 {
+        font-size: 22px;
+    }
+    .head img {
+        max-width: 350px;
+    }
+    .center img{
+        width: 78%;
+    }
+    .right ul {
+        gap: 28px;
+    }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
+    .container {
+        width: 97%;
+    }
+    .head h1 {
+        font-size: 19px;
+    }
+    .head h4 {
+        font-size: 17px;
+    }
+    .head h6 {
+        font-size: 18px;
+    margin: 11px 20px 0 20px;
+    }
     .head_img1, .head_img2 {
-        width: 259px;
+        width: 152px;
+    }
+    .head img {
+        max-width: 250px;
+    }
+    .check {
+        font-size: 89px;
+    }
+    .left h4 {
+        font-size: 17px;
+    }
+    .left ul {
+        font-size: 12px;
+    }
+    .center img {
+        width: 70%;
+    }
+    .right ul li a {
+        font-size: 34px;
+    }
+}
+
+
+@media screen and (max-width: 476px) {
+    .container {
+        width: 99%;
+    }
+    .head h1 {
+        font-size: 14px;
+    }
+    .head h4 {
+        font-size: 12px;
+    }
+    .head h6 {
+        font-size: 13px;
+    margin: 11px 20px 0 20px;
+    }
+    .head_img1, .head_img2 {
+        width: 134px;
+    }
+    .head img {
+        max-width: 220px;
+    }
+    .check {
+        font-size: 69px;
+    }
+    .left h4 {
+        font-size: 13px;
+    }
+    .left ul {
+        font-size: 10px;
+        padding-left: 3px;
+    }
+    .center img {
+        width: 50%;
+    }
+    .right ul li a {
+        font-size: 24px;
+    }
+    .right ul {
+        gap: 12px;
+    }
+
+    .row {
+        gap: 3px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .head img {
+        max-width: 154px;
+    }
+
+    .head_img1, .head_img2 {
+        width: 107px;
+    }
+
+    .head {
+        margin-bottom: 23px;
+    }
+    .check {
+        font-size: 58px;
     }
 }
