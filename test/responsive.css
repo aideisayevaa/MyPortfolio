@@ -1,0 +1,46 @@
+@media screen and (max-width:992px) {
+    .container {
+        width: 800px;
+    }
+
+    .left ul {
+        font-size: 17px;
+    }
+
+    .right ul li a {
+        font-size: 45px;
+    }
+
+    .right ul {
+        gap: 41px;
+    }
+
+    .check {
+        font-size: 149px;
+    }
+
+    .head img {
+        max-width: 396px;
+    }
+
+    .head_img1,
+    .head_img2 {
+        width: 280px;
+    }
+
+
+}
+
+@media screen and (max-width:768px) {
+    .row {
+        display: flex;
+        justify-content: space-around;
+        gap: 9px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .head_img1, .head_img2 {
+        width: 259px;
+    }
+}
