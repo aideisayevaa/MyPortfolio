@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Kod Oxuma</title>
+    <!-- Əvvəlki CSS və JavaScript kodlarını əlavə edin -->
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Əvvəlki kontent -->
+    <header>
+        <h1>Saytın Başlığı</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Əsas Səhifə</a></li>
+            <li><a href="#">Haqqında</a></li>
+            <li><a href="#">Əlaqə</a></li>
+        </ul>
+    </nav>
+
+    <!-- Video Ekranı (QR Kod Oxuma) -->
+    <h2>QR Kod Oxuma</h2>
+    <video id="video" width="300" height="200" style="border: 1px solid black;"></video>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <!-- JavaScript kodunu əlavə edirik -->
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+    <script>
+        let video = document.getElementById('video');
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
+
+        // Kameranı açırıq
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+          .then(function (stream) {
+            video.srcObject = stream;
+            video.setAttribute('playsinline', true); // iOS üçün
+            video.play();
+            requestAnimationFrame(scanQRCode);
+          });
+
+        // QR kodu oxumağa başlayırıq
+        function scanQRCode() {
+          if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            canvas.height = video.videoHeight;
+            canvas.width = video.videoWidth;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            let qrCode = jsQR(imageData.data, canvas.width, canvas.height);
+
+            if (qrCode) {
+              // QR kodu oxundu, içindəkini alırıq
+              let qrData = qrCode.data;
+              // Burada qrData bizim hash kodu olacaq
+              fetchUserData(qrData);
+            }
+          }
+          requestAnimationFrame(scanQRCode);
+        }
+
+        // QR kodu oxunduqda URL'ə yönləndirmək üçün funksiyanı çağırırıq
+        function fetchUserData(hash) {
+          window.location.href = "single.php?hash=" + hash;
+        }
+    </script>
+
+    <!-- Əvvəlki kontent -->
+    <footer>
+        <p>2025 © Bütün hüquqlar qorunur.</p>
+    </footer>
+</body>
+</html>
